@@ -70,6 +70,26 @@
    |                  |<-- Cache Result -----|<-- Return Result ------|                      |
    |<-- 200 OK -------|                      |                        |                      |
 
+   Client        API Gate / Auth       Idempotency Engine       Saga Orchestrator          DB / Ledger
+   |                  |                      |                        |                      |
+   |-- Transfer ----->|                      |                        |                      |
+   |   (key, params)  |-- Check / Lock ----->|                        |                      |
+   |                  |   Idempotency Key    |-- Key Valid? (New) --->|                      |
+   |                  |                      |                        |-- Create Transaction |
+   |                  |                      |                        |   (PENDING) -------->|
+   |                  |                      |                        |                      |
+   |                  |                      |                        |-- Step 1: Debit ----->|
+   |                  |                      |                        |   Sender + Ledger    |
+   |                  |                      |                        |                      |
+   |                  |                      |                        |-- Step 2: Credit ---->|
+   |                  |                      |                        |   Receiver + Ledger  |
+   |                  |                      |                        |                      |
+   |                  |                      |                        |-- Step 3: Set Status |
+   |                  |                      |                        |   SUCCESS ------------>|
+   |                  |<-- Cache Result -----|<-- Return Result ------|                      |
+   |<-- 200 OK -------|                      |                        |
+
+   
 # Compensation & Failure Recovery
 
   - If Step 3 (Credit Receiver) fails due to a locked account, non-existent wallet, or system timeout, the Orchestrator executes a compensating rollback workflow:
@@ -80,7 +100,7 @@
   - Finalize: Mark Transaction status as FAILED
   - Persist State: Store the FAILED response under the original idempotency_key so subsequent retries return the deterministic failure result without re-executing steps.
 
-  
+
 
 
 
