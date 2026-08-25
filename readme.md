@@ -51,6 +51,7 @@
 
   - Orchestartor saga is the brain and will the saga steps 
 
+```
   Client        API Gate / Auth       Idempotency Engine       Saga Orchestrator          DB / Ledger
    |                  |                      |                        |                      |
    |-- Transfer ----->|                      |                        |                      |
@@ -69,28 +70,8 @@
    |                  |                      |                        |   SUCCESS ------------>|
    |                  |<-- Cache Result -----|<-- Return Result ------|                      |
    |<-- 200 OK -------|                      |                        |                      |
+```
 
-  ```mermaid
-sequenceDiagram
-    autonumber
-    actor Client
-    participant API as API Gate / Auth
-    participant Idem as Idempotency Engine
-    participant Saga as Saga Orchestrator
-    participant DB as DB / Ledger
-
-    Client->>API: POST /transfer (key, params)
-    API->>Idem: Check / Lock Idempotency Key
-    Idem-->>API: Key Valid (New)
-    API->>Saga: Initiate Transfer
-    Saga->>DB: Create Transaction (PENDING)
-    Saga->>DB: Step 1: Debit Sender + Write Ledger
-    Saga->>DB: Step 2: Credit Receiver + Write Ledger
-    Saga->>DB: Step 3: Update Status (SUCCESS)
-    Saga-->>Idem: Return Result
-    Idem-->>API: Cache Result
-    API-->>Client: 200 OK
-    
 # Compensation & Failure Recovery
 
   - If Step 3 (Credit Receiver) fails due to a locked account, non-existent wallet, or system timeout, the Orchestrator executes a compensating rollback workflow:
