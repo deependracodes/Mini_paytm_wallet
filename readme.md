@@ -84,5 +84,16 @@
 
 
 
+# Problems in single db
+  - reads are slow
+  - storage issues
+  - writes are also slow
 
+# Sharding
+   - Splitting data across multiple databases
 
+# Here we will have 2 wallet_shard , so that when a user register we can choose which shard he will stored into  like user_id is even then wallet_shard_1 and vice-versa
+
+# The goal is test transaction from 1 shard to other works or not
+# if one shard success and other fails , then the system recoves
+# here for wallet aspect - writes are heavy and should support acid properties like mysql

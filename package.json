@@ -1,0 +1,54 @@
+{
+  "name": "mini paytm-wallet",
+  "version": "1.0.0",
+  "description": "A high-concurrency, fault-tolerant digital wallet system designed with Saga Orchestration, strict double-entry ledger bookkeeping, and end-to-end idempotency guarantees.",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "nodemon --watch src --ext ts --exec tsx src/index.ts",
+    "prisma:generate": "prisma generate",
+    "prisma:migrate": "prisma migrate dev",
+    "prisma:migrate:deploy": "prisma migrate deploy",
+    "prisma:studio": "prisma studio"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/deependracodes/Mini_paytm_wallet.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/deependracodes/Mini_paytm_wallet/issues"
+  },
+  "homepage": "https://github.com/deependracodes/Mini_paytm_wallet#readme",
+  "dependencies": {
+    "@prisma/adapter-mariadb": "^7.0.0",
+    "@prisma/client": "^7.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "helmet": "^7.1.0",
+    "mysql2": "^3.6.5",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.10.6",
+    "@types/uuid": "^9.0.7",
+    "prisma": "^7.0.0",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.3.3",
+       "tsx": "^4.22.5"
+  },
+  "prisma": {
+    "schema": "prisma/schema.prisma"
+  },
+  "allowScripts": {
+    "@prisma/engines@7.9.1": true,
+    "prisma@7.9.1": true
+  }
+}

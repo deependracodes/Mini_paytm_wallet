@@ -1,0 +1,23 @@
+// rule which user will go which shard
+
+import { ShardId } from "../types/shared-types.js";
+
+export class ShardResolver {
+  static getShardId(userId: bigint | number): ShardId {
+    const userIdNum = typeof userId === "bigint" ? Number(userId) : userId;
+    const shardId = userIdNum % 2 === 0 ? ShardId.SHARD_1 : ShardId.SHARD_2;
+    return shardId;
+  }
+
+  static getShardName(userId: bigint | number): string {
+    const shardId = this.getShardId(userId);
+    return shardId == ShardId.SHARD_1 ? "shard_1" : "shard_2";
+  }
+
+  static areOnSameShard(
+    userId1: bigint | number,
+    userId2: bigint | number,
+  ): boolean {
+    return this.getShardId(userId2) == this.getShardId(userId1);
+  }
+}
