@@ -5,11 +5,11 @@ dotenv.config();
 import {defineConfig} from "prisma/config";
 
 export default defineConfig({
-    schema : "primsa/schema.prisma",
+    schema : "prisma/schema.prisma",
     migrations : {
-        path : "prisma/migations"
+        path : "prisma/migrations"
     },
     datasource : {
-        url : process.env.DATABASE_URL || "mysql://root:localhost:3306/paytm_wallet"
+        url : process.env.DATABASE_URL || "mysql://root:root@localhost:3306/paytm_wallet"
     }
 })
