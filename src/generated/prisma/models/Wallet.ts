@@ -46,7 +46,7 @@ export type WalletMinAggregateOutputType = {
   balance: bigint | null
   version: number | null
   created_at: Date | null
-  updated_id: Date | null
+  updated_at: Date | null
 }
 
 export type WalletMaxAggregateOutputType = {
@@ -55,7 +55,7 @@ export type WalletMaxAggregateOutputType = {
   balance: bigint | null
   version: number | null
   created_at: Date | null
-  updated_id: Date | null
+  updated_at: Date | null
 }
 
 export type WalletCountAggregateOutputType = {
@@ -64,7 +64,7 @@ export type WalletCountAggregateOutputType = {
   balance: number
   version: number
   created_at: number
-  updated_id: number
+  updated_at: number
   _all: number
 }
 
@@ -89,7 +89,7 @@ export type WalletMinAggregateInputType = {
   balance?: true
   version?: true
   created_at?: true
-  updated_id?: true
+  updated_at?: true
 }
 
 export type WalletMaxAggregateInputType = {
@@ -98,7 +98,7 @@ export type WalletMaxAggregateInputType = {
   balance?: true
   version?: true
   created_at?: true
-  updated_id?: true
+  updated_at?: true
 }
 
 export type WalletCountAggregateInputType = {
@@ -107,7 +107,7 @@ export type WalletCountAggregateInputType = {
   balance?: true
   version?: true
   created_at?: true
-  updated_id?: true
+  updated_at?: true
   _all?: true
 }
 
@@ -203,7 +203,7 @@ export type WalletGroupByOutputType = {
   balance: bigint
   version: number
   created_at: Date
-  updated_id: Date
+  updated_at: Date
   _count: WalletCountAggregateOutputType | null
   _avg: WalletAvgAggregateOutputType | null
   _sum: WalletSumAggregateOutputType | null
@@ -235,7 +235,7 @@ export type WalletWhereInput = {
   balance?: Prisma.BigIntFilter<"Wallet"> | bigint | number
   version?: Prisma.IntFilter<"Wallet"> | number
   created_at?: Prisma.DateTimeFilter<"Wallet"> | Date | string
-  updated_id?: Prisma.DateTimeFilter<"Wallet"> | Date | string
+  updated_at?: Prisma.DateTimeFilter<"Wallet"> | Date | string
 }
 
 export type WalletOrderByWithRelationInput = {
@@ -244,7 +244,7 @@ export type WalletOrderByWithRelationInput = {
   balance?: Prisma.SortOrder
   version?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
-  updated_id?: Prisma.SortOrder
+  updated_at?: Prisma.SortOrder
 }
 
 export type WalletWhereUniqueInput = Prisma.AtLeast<{
@@ -256,7 +256,7 @@ export type WalletWhereUniqueInput = Prisma.AtLeast<{
   balance?: Prisma.BigIntFilter<"Wallet"> | bigint | number
   version?: Prisma.IntFilter<"Wallet"> | number
   created_at?: Prisma.DateTimeFilter<"Wallet"> | Date | string
-  updated_id?: Prisma.DateTimeFilter<"Wallet"> | Date | string
+  updated_at?: Prisma.DateTimeFilter<"Wallet"> | Date | string
 }, "id" | "user_id">
 
 export type WalletOrderByWithAggregationInput = {
@@ -265,7 +265,7 @@ export type WalletOrderByWithAggregationInput = {
   balance?: Prisma.SortOrder
   version?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
-  updated_id?: Prisma.SortOrder
+  updated_at?: Prisma.SortOrder
   _count?: Prisma.WalletCountOrderByAggregateInput
   _avg?: Prisma.WalletAvgOrderByAggregateInput
   _max?: Prisma.WalletMaxOrderByAggregateInput
@@ -282,7 +282,7 @@ export type WalletScalarWhereWithAggregatesInput = {
   balance?: Prisma.BigIntWithAggregatesFilter<"Wallet"> | bigint | number
   version?: Prisma.IntWithAggregatesFilter<"Wallet"> | number
   created_at?: Prisma.DateTimeWithAggregatesFilter<"Wallet"> | Date | string
-  updated_id?: Prisma.DateTimeWithAggregatesFilter<"Wallet"> | Date | string
+  updated_at?: Prisma.DateTimeWithAggregatesFilter<"Wallet"> | Date | string
 }
 
 export type WalletCreateInput = {
@@ -291,7 +291,7 @@ export type WalletCreateInput = {
   balance?: bigint | number
   version?: number
   created_at?: Date | string
-  updated_id?: Date | string
+  updated_at?: Date | string
 }
 
 export type WalletUncheckedCreateInput = {
@@ -300,7 +300,7 @@ export type WalletUncheckedCreateInput = {
   balance?: bigint | number
   version?: number
   created_at?: Date | string
-  updated_id?: Date | string
+  updated_at?: Date | string
 }
 
 export type WalletUpdateInput = {
@@ -309,7 +309,7 @@ export type WalletUpdateInput = {
   balance?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   version?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updated_id?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type WalletUncheckedUpdateInput = {
@@ -318,7 +318,7 @@ export type WalletUncheckedUpdateInput = {
   balance?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   version?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updated_id?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type WalletCreateManyInput = {
@@ -327,7 +327,7 @@ export type WalletCreateManyInput = {
   balance?: bigint | number
   version?: number
   created_at?: Date | string
-  updated_id?: Date | string
+  updated_at?: Date | string
 }
 
 export type WalletUpdateManyMutationInput = {
@@ -336,7 +336,7 @@ export type WalletUpdateManyMutationInput = {
   balance?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   version?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updated_id?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type WalletUncheckedUpdateManyInput = {
@@ -345,7 +345,7 @@ export type WalletUncheckedUpdateManyInput = {
   balance?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   version?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updated_id?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type WalletCountOrderByAggregateInput = {
@@ -354,7 +354,7 @@ export type WalletCountOrderByAggregateInput = {
   balance?: Prisma.SortOrder
   version?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
-  updated_id?: Prisma.SortOrder
+  updated_at?: Prisma.SortOrder
 }
 
 export type WalletAvgOrderByAggregateInput = {
@@ -370,7 +370,7 @@ export type WalletMaxOrderByAggregateInput = {
   balance?: Prisma.SortOrder
   version?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
-  updated_id?: Prisma.SortOrder
+  updated_at?: Prisma.SortOrder
 }
 
 export type WalletMinOrderByAggregateInput = {
@@ -379,7 +379,7 @@ export type WalletMinOrderByAggregateInput = {
   balance?: Prisma.SortOrder
   version?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
-  updated_id?: Prisma.SortOrder
+  updated_at?: Prisma.SortOrder
 }
 
 export type WalletSumOrderByAggregateInput = {
@@ -417,7 +417,7 @@ export type WalletSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs =
   balance?: boolean
   version?: boolean
   created_at?: boolean
-  updated_id?: boolean
+  updated_at?: boolean
 }, ExtArgs["result"]["wallet"]>
 
 
@@ -428,10 +428,10 @@ export type WalletSelectScalar = {
   balance?: boolean
   version?: boolean
   created_at?: boolean
-  updated_id?: boolean
+  updated_at?: boolean
 }
 
-export type WalletOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "user_id" | "balance" | "version" | "created_at" | "updated_id", ExtArgs["result"]["wallet"]>
+export type WalletOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "user_id" | "balance" | "version" | "created_at" | "updated_at", ExtArgs["result"]["wallet"]>
 
 export type $WalletPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "Wallet"
@@ -442,7 +442,7 @@ export type $WalletPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs
     balance: bigint
     version: number
     created_at: Date
-    updated_id: Date
+    updated_at: Date
   }, ExtArgs["result"]["wallet"]>
   composites: {}
 }
@@ -817,7 +817,7 @@ export interface WalletFieldRefs {
   readonly balance: Prisma.FieldRef<"Wallet", 'BigInt'>
   readonly version: Prisma.FieldRef<"Wallet", 'Int'>
   readonly created_at: Prisma.FieldRef<"Wallet", 'DateTime'>
-  readonly updated_id: Prisma.FieldRef<"Wallet", 'DateTime'>
+  readonly updated_at: Prisma.FieldRef<"Wallet", 'DateTime'>
 }
     
 

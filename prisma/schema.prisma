@@ -32,7 +32,7 @@ model Wallet {
     balance    BigInt   @default(0) @db.BigInt
     version    Int      @default(0)
     created_at DateTime @default(now())
-    updated_id DateTime @updatedAt
+    updated_at DateTime @updatedAt
 
     @@index([user_id], name: "idx_user_id")
     @@map("wallets")

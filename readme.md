@@ -97,3 +97,28 @@
 # The goal is test transaction from 1 shard to other works or not
 # if one shard success and other fails , then the system recoves
 # here for wallet aspect - writes are heavy and should support acid properties like mysql
+
+
+# Build the transaction
+  - Either everything happens or nothing happens
+  - Every transaction should be atomic , nothing should be lost
+  - Everything should be wrapped under a transaction
+
+# Connection Manager Utility
+  - Get the right db client for a shard
+  - Run a function inside a db transaction on that shard
+
+# Pesimistic Locking(Row Locking)
+  - Stop 2 d/f request changing the same data/row simulateneously , which can bring inconsistency
+
+# Optimistic Locking(Version Locking)
+  - When we are reading something and kind of updating it , detect "someone else has updated it first"
+
+# We will be use Optimistic Locking in this project
+  - A simple trick to prevent lost updates
+  
+
+# Transactional steps
+  - Idempotency - Same req retired should not create a new transaction
+  - State Machine - flow through clear state [Pending , Debited/Credited , Failed]
+  - Shard Ownership - A transaction record lived on the sender shard so we always know where to look first

@@ -11,3 +11,9 @@
 # tsc init
 
 # We will have 2 prisma client as 2 shards but 2 db2
+
+# npm run prisma:generate
+
+# npm run prisma:migrate:all
+
+# npm run dev
