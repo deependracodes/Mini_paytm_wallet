@@ -10,7 +10,7 @@ import { SagaContext } from "./saga-context.js";
 // - compensate() - rollback logic (what to do when something goes wrong)
 
 export interface SagaStep {
-  execute(context: SagaContext): Promise<SagaStep>;
+  execute(context: SagaContext): Promise<SagaContext>;
 
   compensate(context: SagaContext): Promise<void>;
 
