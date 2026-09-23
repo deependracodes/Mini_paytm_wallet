@@ -122,3 +122,33 @@
   - Idempotency - Same req retired should not create a new transaction
   - State Machine - flow through clear state [Pending , Debited/Credited , Failed]
   - Shard Ownership - A transaction record lived on the sender shard so we always know where to look first
+
+# Norma Singal Db
+  - user1 > send > user2
+  - failure case they can rollback
+
+# Saga Distributed Db , trnxs , 2pc 
+  - break the operation into steps
+  - after each setp , save progress
+  - if something fails later , run undo steps for the parts that succeeded
+
+
+# Forward action
+# Compensation action
+
+# 2 saga styles
+  - choreography
+  - orchestration (we use this project)
+
+# One central coordinator
+ - run steps in order
+ - remembers which steps completed
+ - if a step fails , it triggers compensation in reverse order
+
+# 2 files
+  - saga context
+      - shar envelope of data that travels through the whole saga . Every saga step reads from it and can write back into it , so steps can coordinate without calling each other directly
+  
+  - saga step
+      - 
+
